@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Шаблонна функція сортування вставками
 template<typename T>
 void insertionSort(T arr[], int size) {
     for (int i = 1; i < size; ++i) {
