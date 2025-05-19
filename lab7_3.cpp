@@ -8,14 +8,14 @@ private:
     int size;
 
 public:
-    // Конструктор
+   
     MyArray(int s = 0) : size(s) {
         data = new T[size];
         for (int i = 0; i < size; ++i)
             data[i] = T(); // ініціалізація типу за замовчуванням
     }
 
-    // Конструктор копіювання
+ 
     MyArray(const MyArray& other) {
         size = other.size;
         data = new T[size];
@@ -23,14 +23,14 @@ public:
             data[i] = other.data[i];
     }
 
-    // Деструктор
+  
     ~MyArray() {
         delete[] data;
     }
 
     // Оператор =
     MyArray& operator=(const MyArray& other) {
-        if (this == &other) return *this; // захист від самоприсвоєння
+        if (this == &other) return *this; 
         delete[] data;
         size = other.size;
         data = new T[size];
@@ -88,22 +88,21 @@ public:
         return *this;
     }
 
-    // Виведення масиву
+    
     void print() const {
         for (int i = 0; i < size; ++i)
             cout << data[i] << " ";
         cout << endl;
     }
 
-    // Метод для заповнення випадковими значеннями
+   
     void fillRandom(int min = 0, int max = 100) {
         for (int i = 0; i < size; ++i)
             data[i] = min + rand() % (max - min + 1);
     }
 };
 
-// ======================
-// Демонстрація
+
 int main() {
     srand(time(0));
 
