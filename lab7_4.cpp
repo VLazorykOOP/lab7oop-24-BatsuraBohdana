@@ -2,7 +2,6 @@
 #include <stack>
 using namespace std;
 
-// Вузол дерева
 template <typename T>
 struct TreeNode {
     T data;
@@ -12,13 +11,12 @@ struct TreeNode {
     TreeNode(T val) : data(val), left(nullptr), right(nullptr) {}
 };
 
-// Бінарне дерево
 template <typename T>
 class BinaryTree {
 private:
     TreeNode<T>* root;
 
-    // Рекурсивна вставка
+
     TreeNode<T>* insert(TreeNode<T>* node, T val) {
         if (!node) return new TreeNode<T>(val);
         if (val < node->data)
@@ -39,7 +37,6 @@ public:
         return root;
     }
 
-    // Друк дерева (інфіксно)
     void inorder(TreeNode<T>* node) const {
         if (!node) return;
         inorder(node->left);
@@ -53,7 +50,7 @@ public:
         cout << endl;
     }
 
-    // Друк через ітератор
+
     void printWithIterator();
 };
 
@@ -90,7 +87,6 @@ public:
     }
 };
 
-// Виведення дерева через ітератор
 template <typename T>
 void BinaryTree<T>::printWithIterator() {
     TreeIterator<T> it(root);
@@ -101,8 +97,7 @@ void BinaryTree<T>::printWithIterator() {
     cout << endl;
 }
 
-// ======================
-// Демонстрація
+
 int main() {
     BinaryTree<int> tree;
 
@@ -115,10 +110,8 @@ int main() {
     tree.insert(60);
     tree.insert(80);
 
-    // Вивід інфіксним обходом
     tree.printInorder();
 
-    // Вивід з ітератором
     tree.printWithIterator();
 
     return 0;
